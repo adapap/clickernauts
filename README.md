@@ -1,2 +1,2 @@
-# clickernauts
-A clicker game based on Awesomenauts by Ronimo Games.
+# Clickernauts
+A fan-made clicker game based on Awesomenauts by Ronimo Games.
