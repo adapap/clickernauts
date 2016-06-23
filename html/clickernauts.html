@@ -393,14 +393,25 @@
             </div> <!--Upgrades-->
             <div id="prestige" class="row text-left menuContent alphaNone">
                 <div class="prestigediv">
-                    <p class="prestige-text">Prestige allows you to reset your current game and restart with bonuses. You can choose to gain a standard prestige level, which makes enemies 10% stronger but gives you a level of prestige (represented by the icon in the Stats Menu) up to a maximum of 10 times. The other option will reward you with a Prestige Token (ptokenimg) which gives you a 1.5% boost in DPS and can be used as a currency to purchase special characters and items.</p>
+                    <p class="prestige-text">Standard Prestige allows you to reset your current game and restart with bonuses. You can choose to gain a standard prestige level, which makes enemies 10% stronger but gives you a level of prestige (represented by the icon in the Stats Menu) up to a maximum of 10 times.</p>
+                    <p class="prestige-text">Awesome Prestige will reward you with a Prestige Token (ptokenimg) which gives you a 1.5% boost in DPS and can be used as a currency to purchase special characters and items.</p>
                     <div class="text-center">
-                        <button class="prestige-button">PRESTIGE</button>
+                        <div class="btn-group-vertical">
+                            <button id="standard" class="btn prestige-button">Standard</button>
+                            <button id="extra" class="btn prestige-button">Awesome</button>
+                        </div>
                     </div>
-                    </div>
+                </div>
                 </div> <!--Prestige-->
             </div> <!--Menu-->
         </div> <!--Content-->
+        <div id="prestige-overlay-outer" class="text-center hidden">
+            <div id="prestige-overlay-inner" class="text-center">
+                <p>Are you sure you want to prestige?</p>
+                <p><em>Your progress will be reset.</em></p>
+                <button class="btn prestige-yes">Yes</button><button class="btn prestige-no">No</button>
+            </div>
+            </div> <!--Prestige Overlay-->
         </div> <!--Sitewrap-->
     </body>
 </html>
