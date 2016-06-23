@@ -17,7 +17,23 @@ var Character = function (name, cost, dps) {
     this.cost = cost;
     this.dps = dps;
     this.purchased = false;
+    this.type = "normal";
 };
+
+var StarstormCharacter = function (name, cost, unlock) {
+    this.name = name;
+    this.cost = cost;
+    this.type = "starstorm";
+    this.unlock = unlock;
+    switch(unlock) {
+        case "0":
+            '';
+            break;
+        default:
+            break;
+    }
+    this.purchased = false;
+}
 
 var Upgrade = function (cost, char, dpsPerc, dpcPerc) {
     this.cost = cost;
@@ -49,11 +65,30 @@ Upgrade:
     Special: Base DPS * 30, Step 5
 */
 
-var froggyg = new Character("froggyg",100,50);
-var lonestar = new Character("lonestar",290,85);
-var leon = new Character("leon",910,170);
-var scoop = new Character("scoop",3150,425);
-var gnaw = new Character("gnaw",12900,1360);
+var froggyg = new Character("froggyg",100,50),
+    lonestar = new Character("lonestar",290,85),
+    leon = new Character("leon",910,170),
+    scoop = new Character("scoop",3150,375),
+    gnaw = new Character("gnaw",12900,900),
+    raelynn = new Character("raelynn",63210,2240),
+    ayla = new Character("ayla",221250,5610),
+    clunk = new Character("clunk",796490,14025),
+    voltar = new Character("voltar",2947000,35060),
+    coco = new Character("coco",11198595,87660),
+    skolldir = new Character("skolldir",43674520,219140),
+    yuri = new Character("yuri",174698080,547850),
+    derpl = new Character("derpl",698792330,1369630),
+    vinnie = new Character("vinnie",12900,3424070),
+    genji = new Character("genji",12900,8560180),
+    swiggins = new Character("swiggins",12900,21400450),
+    rocco = new Character("rocco",12900,53501130),
+    ksenia = new Character("ksenia",12900,133713370);
+    
+var ted = new StarstormCharacter("ted",5,1),
+    penny = new StarstormCharacter("penny",10,2),
+    sentry = new StarstormCharacter("sentry",20,3),
+    skree = new StarstormCharacter("skree",45,4),
+    nibbs = new StarstormCharacter("nibbs",90,5);
 
 var charBought = 0;
 
@@ -108,14 +143,19 @@ function updateMenu(content, pos) {
 
 function charBuy(char) {
     if (char.purchased == false) {
-        if (solarTot >= char.cost) {
-            solarTot -= char.cost;
-            char.purchased = true;
-            charBought += 1;
-            dps += char.dps;
-            $("#dps").text(dps);
-            calcSolar(0);
-            $("#" + char.name).removeClass("locked");
+        if (char.type == "starstorm") {
+                '';
+            }
+        if (char.type == "normal") {
+            if (solarTot >= char.cost) {
+                solarTot -= char.cost;
+                dps += char.dps;
+                $("#dps").text(dps);
+                calcSolar(0);
+                char.purchased = true;
+                charBought += 1;
+                $("#" + char.name).removeClass("locked");
+            }
         }
     }
 }
